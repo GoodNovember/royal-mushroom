@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "gatsby": "^2.0.76",
+    "gatsby-plugin-netlify-cms": "^3.0.9",
+    "netlify-cms": "^2.3.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1"
   },
