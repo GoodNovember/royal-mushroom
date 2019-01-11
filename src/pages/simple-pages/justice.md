@@ -1,4 +1,5 @@
 ---
+kind: page
 template: page
 path: justice
 date: 2019-01-10T20:50:28.002Z
