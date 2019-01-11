@@ -2,15 +2,24 @@ backend:
   name: github
   repo: GoodNovember/royal-mushroom
 
+publish_mode: editorial_workflow
+
 media_folder: static/assets
 public_folder: assets
 
 collections:
   - name: page
-    label: Page
+    label: Pages
+    label_singular: Page
+    description: These are simple pages
     folder: src/pages/simple-pages
     create: true
+    identifier_field: title
     fields:
+      - name: kind
+        widget: hidden
+        default: page
+
       - name: template
         label: Template
         widget: select
@@ -32,3 +41,86 @@ collections:
       - name: body
         label: Body
         widget: markdown
+
+  - name: standard
+    label: Educational Standards
+    label_singular: Standard
+    description: These are Georgia Educational Standards
+    folder: src/pages/standards
+    identifier_field: title
+    create: true
+    fields:
+      - name: kind
+        widget: hidden
+        default: standard
+
+      - name: title
+        label: Standard Title
+        widget: text
+        hint: "This describes the Standard, include the code, for example: \"SS1H1 Read about and describe the life of historical figures in American history.\""
+    
+      - name: class
+        label: Class
+        widget: select
+        default: SS
+        options:
+          - label: (SS) Social Studies
+            value: SS
+        hint: Currently, there is only Social Studies currently implemented.
+
+      - name: grade
+        label: Grade Level
+        widget: select
+        default: page
+        options:
+          - label: (K) Kindergarden
+            value: K
+          - label: (1) 1st Grade
+            value: 1
+          - label: (2) 2nd Grade
+            value: 2
+          - label: (3) 3rd Grade
+            value: 3
+          - label: (4) 4th Grade
+            value: 4
+          - label: (5) 5th Grade
+            value: 5
+          - label: (6) 6th Grade
+            value: 6
+          - label: (7) 7th Grade
+            value: 7
+          - label: (8) 8th Grade
+            value: 8
+          - label: (9) 9th Grade
+            value: 9
+          - label: (10) 10th Grade
+            value: 10
+          - label: (11) 11th Grade
+            value: 11
+          - label: (12) 12th Grade
+            value: 12
+
+      - name: domain_label
+        label: Domain
+        widget: select
+        options:
+          - label: (H) Historical Understandings
+            value: H 
+          - label: (G) Geographic Understandings
+            value: G
+          - label: (CG) Government / Civic Understandings
+            value: CG
+          - label: (E) Economic Understandings
+            value: E
+
+      - name: domain_number
+        label: Domain Number
+        valueType: int
+        min: 1
+        widget: number
+        hint: This represents the last number in the Standard Code
+
+      - name: body
+        label: Body
+        widget: markdown
+        hint: Here you should add the alphabetical list of articles for this standard.
