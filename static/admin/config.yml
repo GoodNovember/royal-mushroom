@@ -31,10 +31,6 @@ collections:
       - name: path
         label: Path
   
-      - name: date
-        label: Date
-        widget: date
-
       - name: title
         label: Title
 
@@ -56,7 +52,7 @@ collections:
 
       - name: title
         label: Standard Title
-        widget: text
+        widget: string
         hint: "This describes the Standard, include the code, for example: \"SS1H1 Read about and describe the life of historical figures in American history.\""
     
       - name: class
@@ -74,31 +70,31 @@ collections:
         default: page
         options:
           - label: (K) Kindergarden
-            value: K
+            value: "K"
           - label: (1) 1st Grade
-            value: 1
+            value: "1"
           - label: (2) 2nd Grade
-            value: 2
+            value: "2"
           - label: (3) 3rd Grade
-            value: 3
+            value: "3"
           - label: (4) 4th Grade
-            value: 4
+            value: "4"
           - label: (5) 5th Grade
-            value: 5
+            value: "5"
           - label: (6) 6th Grade
-            value: 6
+            value: "6"
           - label: (7) 7th Grade
-            value: 7
+            value: "7"
           - label: (8) 8th Grade
-            value: 8
+            value: "8"
           - label: (9) 9th Grade
-            value: 9
+            value: "9"
           - label: (10) 10th Grade
-            value: 10
+            value: "10"
           - label: (11) 11th Grade
-            value: 11
+            value: "11"
           - label: (12) 12th Grade
-            value: 12
+            value: "12"
 
       - name: domain_label
         label: Domain
@@ -124,3 +120,51 @@ collections:
         label: Body
         widget: markdown
         hint: Here you should add the alphabetical list of articles for this standard.
+
+      - name: tags
+        label: Tags
+        widget: list
+        multiple: true
+
+  - name: event
+    label: Museum Events
+    label_singular: Event
+    description: These are upcoming events at the museum.
+    folder: src/pages/events
+    create: true
+    fields:
+      - name: title
+        label: Title
+        widget: string
+      - name: start_date_time
+        label: Start Date & Time
+        widget: datetime
+      - name: end_date_time
+        label: End Date & Time
+        widget: datetime
+      - name: cost
+        label: Cost
+        hint: How much does the event cost?
+      - name: body
+        label: Body
+        widget: markdown
+        hint: The details of the event.
+      - name: standards
+        label: Standards Met
+        widget: relation
+  
+  - name: settings
+    label: Settings
+    description: Here is where you can edit settings for the website.
+    editor:
+      preview: false
+    files:
+      - name: standardSettings
+        label: Educational Standard Settings
+        file: "src/data/settings/standard.yml"
+        fields:
+          - name: pathPrefix
+            label: Path Prefix
+            widget: string
+            default: standard
+            hint: "Please do not add a slash"
