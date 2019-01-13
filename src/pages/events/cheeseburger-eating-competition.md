@@ -1,4 +1,5 @@
 ---
+kind: event
 title: Cheeseburger Eating Competition
 start_date_time: 2019-01-22T00:37:53.617Z
 end_date_time: 2019-01-22T03:37:53.662Z
