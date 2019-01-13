@@ -1,8 +1,7 @@
 ---
 kind: page
 template: page
-path: education
-date: 2019-01-09T21:21:11.128Z
+path: garbage-boy
 title: Garbage Boy
 ---
 # Hello World!
