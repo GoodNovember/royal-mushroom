@@ -37,6 +37,12 @@ collections:
       - name: body
         label: Body
         widget: markdown
+      
+      - name: tags
+        label: Tags
+        widget: list
+        multiple: true
+        required: false
 
   - name: standard
     label: Educational Standards
@@ -119,12 +125,13 @@ collections:
       - name: body
         label: Body
         widget: markdown
-        hint: Here you should add the alphabetical list of articles for this standard.
+        hint: Here you should add the alphabetical list of articles for this standard. I suggest using Markdown Mode and having a blank line in between each entry.
 
       - name: tags
         label: Tags
         widget: list
         multiple: true
+        required: false
 
   - name: event
     label: Museum Events
@@ -137,24 +144,37 @@ collections:
         widget: hidden
         default: event
       - name: title
-        label: Title
+        label: Event Title
         widget: string
-      - name: start_date_time
+      - name: eventSlug
+        label: Event Slug
+        widget: string
+        hint: This is the unique url that should point to this event.
+      - name: featuredImage
+        label: Featured Image
+        widget: image
+        required: false
+      - name: startDateTime
         label: Start Date & Time
         widget: datetime
-      - name: end_date_time
+      - name: endDateTime
         label: End Date & Time
         widget: datetime
       - name: cost
         label: Cost
         hint: How much does the event cost?
+      - name: location
+        label: Location
+        widget: string
+        required: false
+        hint: Leave blank to use the Default Location specified in the Museum Event Settings
       - name: body
         label: Body
         widget: markdown
         hint: The details of the event.
-      - name: standards
-        label: Standards Met
-        widget: relation
+      - name: tags
+        label: Tags
+        widget: list
         required: false
   
   - name: settings
@@ -165,6 +185,7 @@ collections:
     files:
       - name: SiteSettings
         label: General Website Settings
+        description: Things like the Website Title
         file: "src/data/settings/site/settings.yml"
         fields:
           - name: siteTitle
