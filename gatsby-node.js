@@ -3,15 +3,17 @@ const { resolveTemplate } = require('./machines/resolveTemplate')
 
 exports.onCreateNode = ({ node, getNode, actions, createNode }) => {
 
+    console.log("\n--- Processing Kinds")
+
     const kindMap = {
-        "standard": ({ node, getNode, actions }) => {
+        "standard": ({ node, getNode, actions, kind }) => {
             
             const { createNodeField } = actions
 
             const { frontmatter, id } = node
             const { grade, domain_label, domain_number } = frontmatter
             const code = `${frontmatter.class}${grade}${domain_label}${domain_number}`
-            console.log("\nAdded Standard:",code)
+            console.log(`${kind}: ${code}`)
             createNodeField({
                 node,
                 name: 'standardCode',
@@ -19,9 +21,12 @@ exports.onCreateNode = ({ node, getNode, actions, createNode }) => {
             })
 
         },
-        "page": ({ node, getNode, actions }) => {
+        // "page": ({ node, getNode, actions }) => {
     
-        }
+        // },
+        // "event": ({ node, getNode, actions }) => {
+
+        // }
     }
 
     if( node.internal.type === `MarkdownRemark` ){
@@ -31,9 +36,10 @@ exports.onCreateNode = ({ node, getNode, actions, createNode }) => {
         const chosenKind = kindMap[kind]
 
         if(chosenKind && typeof chosenKind === "function"){
-            chosenKind({ node, getNode, actions })
+            console.log(`---- ${kind} Created`)
+            chosenKind({ node, getNode, actions, kind })
         }else{
-            console.log("Unknown Kind:", kind)
+            // console.log("Unknown Kind:", kind)
         }
 
     }
