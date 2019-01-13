@@ -11,7 +11,7 @@ exports.onCreateNode = ({ node, getNode, actions, createNode }) => {
             const { frontmatter, id } = node
             const { grade, domain_label, domain_number } = frontmatter
             const code = `${frontmatter.class}${grade}${domain_label}${domain_number}`
-
+            console.log("\nAdded Standard:",code)
             createNodeField({
                 node,
                 name: 'standardCode',
