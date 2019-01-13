@@ -84,6 +84,7 @@ exports.createPages = ({ actions, graphql }) => {
         }
 
         const standardSettings = data.standardYaml
+        const eventSettings = data.eventYaml
 
         data.allMarkdownRemark.edges.forEach(({ node })=>{
 
@@ -96,6 +97,14 @@ exports.createPages = ({ actions, graphql }) => {
                 createPage({
                     id,
                     path:`${ standardSettings.standardPathPrefix || 'standard' }/${ fields.standardCode }`,
+                    kind,
+                    component,
+                    context:{ id, kind },
+                })
+            }else if(kind === "event"){
+                createPage({
+                    id,
+                    path:`${ eventSettings.eventPathPrefix || 'event' }/${ id }`,
                     kind,
                     component,
                     context:{ id, kind },
