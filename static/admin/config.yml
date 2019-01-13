@@ -161,7 +161,7 @@ collections:
     files:
       - name: standardSettings
         label: Educational Standard Settings
-        file: "src/data/standardSettings.yml"
+        file: "src/data/settings/standardSettings.yml"
         fields:
           - name: pathPrefix
             label: Path Prefix
