@@ -165,21 +165,21 @@ collections:
     files:
       - name: SiteSettings
         label: General Website Settings
-        file: "src/data/settings/siteSettings.yml"
+        file: "src/data/settings/site/settings.yml"
         fields:
           - name: siteTitle
             label: Site Title
             default: Royal Mushroom
       - name: socialMediaSettings
         label: Social Media Settings
-        file: "src/data/settings/socialMediaSettings.yml"
+        file: "src/data/settings/socialMedia/settings.yml"
         fields:
           - name: socialMediaTwitterUsername
             label: Twitter Username
             widget: string
       - name: standardSettings
         label: Educational Standard Settings
-        file: "src/data/settings/standardSettings.yml"
+        file: "src/data/settings/standard/settings.yml"
         fields:
           - name: standardPathPrefix
             label: Educational Standard Prefix
@@ -193,7 +193,7 @@ collections:
             hint: This is where you go when you want to view all the standards.
       - name: eventSettings
         label: Museum Event Settings
-        file: "src/data/settings/eventSettings.yml"
+        file: "src/data/settings/event/settings.yml"
         fields:
           - name: eventPathPrefix
             label: Event Path Prefix
