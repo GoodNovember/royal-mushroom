@@ -2,7 +2,7 @@ backend:
   name: github
   repo: GoodNovember/royal-mushroom
 
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 
 media_folder: static/assets
 public_folder: assets
