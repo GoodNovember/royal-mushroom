@@ -1,7 +1,7 @@
 ---
 kind: page
 template: page
-path: garbage-boy
+slug: garbage-boy
 title: Garbage Boy
 ---
 # Hello World!

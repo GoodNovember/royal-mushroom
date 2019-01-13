@@ -28,8 +28,8 @@ collections:
           - label: "Normal Page"
             value: page
   
-      - name: path
-        label: Path
+      - name: slug
+        label: Slug
   
       - name: title
         label: Title
@@ -146,7 +146,7 @@ collections:
       - name: title
         label: Event Title
         widget: string
-      - name: eventSlug
+      - name: slug
         label: Event Slug
         widget: string
         hint: This is the unique url that should point to this event.
@@ -163,6 +163,12 @@ collections:
       - name: cost
         label: Cost
         hint: How much does the event cost?
+        required: false
+      - name: ticketURL
+        label: Ticket URL
+        widget: string
+        hint: Leave blank to remove ticket link from event.
+        required: false
       - name: location
         label: Location
         widget: string
