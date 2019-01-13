@@ -142,28 +142,31 @@ exports.createPages = ({ actions, graphql }) => {
             const { kind, template, slug } = frontmatter
 
             const component = resolveTemplate( template || kind )
+
+            const standardPrefix = standardSettings.standardPathPrefix || 'standard'
+            const eventPrefix = eventSettings.eventPathPrefix || 'event'
             
             if(kind === "standard"){
                 createPage({
-                    id,
-                    path:`${ standardSettings.standardPathPrefix || 'standard' }/${ fields.standardCode }`,
-                    kind,
+                    path:`${ standardPrefix }/${ fields.standardCode }`,
                     component,
-                    context:{ id, kind },
+                    context:{ id, kind, prefix: standardPrefix },
                 })
             }else if(kind === "event"){
                 createPage({
-                    id,
-                    path:`${ eventSettings.eventPathPrefix || 'event' }/${ slug || id }`,
-                    kind,
+                    path:`${ eventPrefix }/${ slug || id }`,
                     component,
-                    context:{ id, kind },
+                    context:{ id, kind, prefix: eventPrefix },
+                })
+            }else if(kind === "page"){
+                createPage({
+                    path:`${ slug }`,
+                    component,
+                    context:{ id, kind }
                 })
             }else{
                 createPage({
-                    id,
-                    path:`${kind}/${ slug || id }`,
-                    kind,
+                    path:`${ kind }/${ slug || id }`,
                     component,
                     context:{ id, kind },
                 })
