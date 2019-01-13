@@ -177,3 +177,18 @@ collections:
             widget: string
             default: standards
             hint: This is where you go when you want to view all the standards.
+      - name: eventSettings
+        label: Museum Event Settings
+        file: "src/data/settings/eventSettings.yml"
+        fields:
+          - name: eventPathPrefix
+            label: Event Path Prefix
+            widget: string
+            default: event
+          - name: eventDefaultLocation
+            label: Default Event Location
+            widget: text
+            default: >-
+              322 Academy Street NE
+              Gainesville, GA 30501
+            hint: 322 Academy Street NE Gainesville, GA 30501 

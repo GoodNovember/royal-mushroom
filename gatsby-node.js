@@ -50,6 +50,9 @@ exports.createPages = ({ actions, graphql }) => {
 
     const query = `
         {
+            settingsYaml{
+                standardPathPrefix
+            }
             allMarkdownRemark {
                 edges {
                     node {
@@ -77,6 +80,8 @@ exports.createPages = ({ actions, graphql }) => {
             return Promise.reject( errors )
         }
 
+        const settings = data.settingsYaml
+
         data.allMarkdownRemark.edges.forEach(({ node })=>{
 
             const { id, frontmatter, fields } = node
@@ -87,7 +92,7 @@ exports.createPages = ({ actions, graphql }) => {
             if(kind === "standard"){
                 createPage({
                     id,
-                    path:`standard/${ fields.standardCode }`,
+                    path:`${ settings.standardPathPrefix || 'standard' }/${ fields.standardCode }`,
                     kind,
                     component,
                     context:{ id, kind },
@@ -95,7 +100,7 @@ exports.createPages = ({ actions, graphql }) => {
             }else{
                 createPage({
                     id,
-                    path,
+                    path:`${kind}/${id}`,
                     kind,
                     component,
                     context:{ id, kind },
