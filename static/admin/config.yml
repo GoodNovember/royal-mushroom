@@ -163,6 +163,20 @@ collections:
     editor:
       preview: false
     files:
+      - name: SiteSettings
+        label: General Website Settings
+        file: "src/data/settings/siteSettings.yml"
+        fields:
+          - name: siteTitle
+            label: Site Title
+            default: Royal Mushroom
+      - name: socialMediaSettings
+        label: Social Media Settings
+        file: "src/data/settings/socialMediaSettings.yml"
+        fields:
+          - name: socialMediaTwitterUsername
+            label: Twitter Username
+            widget: string
       - name: standardSettings
         label: Educational Standard Settings
         file: "src/data/settings/standardSettings.yml"
@@ -187,8 +201,5 @@ collections:
             default: event
           - name: eventDefaultLocation
             label: Default Event Location
-            widget: text
-            default: >-
-              322 Academy Street NE
-              Gainesville, GA 30501
+            widget: string
             hint: 322 Academy Street NE Gainesville, GA 30501 
